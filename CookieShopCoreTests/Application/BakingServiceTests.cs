@@ -14,19 +14,20 @@ namespace CookieShopCore.Application.Tests
     public class BakingServiceTests
     {
         [TestMethod()]
+        [TestCategory("BuildTest")]
         public void BakingService_BakeCookieTest()
         {
             //Arrange
             var aCookie = Substitute.For<ICookie>();
+            aCookie.IsBurnt(Arg.Any<int>()).ReturnsForAnyArgs(true);
             var bakingService = new BakingService(200);
-
 
             //Act
             bakingService.BakeCookie(aCookie);
 
             //Assert
-            aCookie.Received().IsBurnt(Arg.Any<int>());
-            aCookie.Received().SetCanEat(Arg.Any<bool>());
+            aCookie.Received().IsBurnt(200);
+            aCookie.Received().SetCanEat(false);
         }
 
         [TestMethod()]

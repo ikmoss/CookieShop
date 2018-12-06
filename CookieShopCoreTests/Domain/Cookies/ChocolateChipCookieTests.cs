@@ -12,6 +12,7 @@ namespace CookieShopCore.Domain.Cookies.Tests
     public class ChocolateChipCookieTests
     {
         [TestMethod()]
+        [TestCategory("BuildTest")]
         public void ChocolateChipCookie_IsBurntTest()
         {
             //Arrange
